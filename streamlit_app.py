@@ -26,7 +26,7 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 streamlit.dataframe(my_fruit_list)
 
 # create the repeatable code block (called a function)
-def getfruityvice_data(this_fruit_choice):
+def get_fruityvice_data(this_fruit_choice):
   fruit_choice = streamlit.text_input('What fruit would you like information about?')
   fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
   return fruityvice_normalized
