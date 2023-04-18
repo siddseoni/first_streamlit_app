@@ -30,7 +30,7 @@ def get_fruityvice_data(this_fruit_choice):
   fruitvice_response = requests.get("https://fruityvice.com/api/fruit/" + this_fruit_choice)
   fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
   return fruityvice_normalized
-  
+
 # New Section to display fruityvice api response 
 streamlit.header('Fruityvice Fruit Advice!')
 try:
@@ -41,8 +41,8 @@ try:
     back_from_function = get_fruityvice_data(fruit_choice)
     streamlit.dataframe(back_from_function)
     
-
-    
+except URLError as e:
+  streamlit.error() 
     
 streamlit.header("The fruit load list contains:")
 # Snowflake related functions
